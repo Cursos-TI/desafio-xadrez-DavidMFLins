@@ -8,6 +8,7 @@ int main() {
         printf("1. Mover a Torre\n");
         printf("2. Mover o Bispo\n");
         printf("3. Mover a Rainha\n");
+        printf("4. Mover o Cavalo\n");
         printf("0. Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &menu);
@@ -38,6 +39,20 @@ int main() {
                 } while (q <= 8);
                 break;
 
+            case 4:
+                printf("\nMovimento do Cavalo:\n");
+
+                for (int i = 0; i < 2; i++) 
+                {
+                    printf("Baixo\n");
+                    for (int j = 0; j < 1; j++) 
+                    {
+                        if (i == 1) { 
+                            printf("Esquerda\n");
+                        }
+                    }
+                }
+                break;
             case 0:
                 printf("Saindo do jogo...\n");
                 break;
