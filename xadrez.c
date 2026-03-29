@@ -1,9 +1,41 @@
 #include <stdio.h>
 
+//recursividade para movimento da torre
+void movimentotorre (int numero){
+    if (numero > 0){
+    movimentotorre(numero - 1);
+    printf("Direita\n");
+    }
+}
+
+//recursividade para movimento do bispo
+void movimentobispo (int numero){
+    if (numero > 0){
+        movimentobispo(numero - 1);
+        // loop externo
+        for (int v = 0; v < 1; v++) {
+            printf("Cima\n");
+            // loop interno
+            for (int h = 0; h < 1; h++) {
+                printf("Direita\n");
+            }
+        }
+    }
+}
+
+//recursividade para a rainha
+void movimentorainha (int numero){
+    if (numero > 0){
+    printf("Esquerda\n");
+    movimentorainha(numero - 1);
+    }
+}
+
 int main() {
     int menu;
 
     do {
+        //Menu
         printf("\n### MENU DE XADREZ ###\n");
         printf("1. Mover a Torre\n");
         printf("2. Mover o Bispo\n");
@@ -13,44 +45,34 @@ int main() {
         printf("Escolha uma opcao: ");
         scanf("%d", &menu);
 
+        //escolha do menu com switch
         switch (menu) {
             case 1:
-                printf("\nMovimento da Torre:\n");
-                for (int i = 1; i <= 5; i++) {
-                    printf("Direita\n");
-                }
+                //5 casas de movimentação
+                movimentotorre(5);
                 break;
 
             case 2:
-                printf("\nMovimento do Bispo:\n");
-                int b = 1;
-                while (b <= 5) {
-                    printf("Cima, Direita\n");
-                    b++;
-                }
+                //5 casas de movimentação
+                movimentobispo(5);
                 break;
 
             case 3:
-                printf("\nMovimento da Rainha:\n");
-                int q = 1;
-                do {
-                    printf("Esquerda\n");
-                    q++;
-                } while (q <= 8);
+                //8 casas de movimentação
+               movimentorainha(8);
                 break;
 
             case 4:
                 printf("\nMovimento do Cavalo:\n");
-
-                for (int i = 0; i < 2; i++) 
-                {
-                    printf("Baixo\n");
-                    for (int j = 0; j < 1; j++) 
-                    {
-                        if (i == 1) { 
-                            printf("Esquerda\n");
-                        }
+                // multiplas variaveis
+                for (int i = 1, j = 1; i <= 3; i++) {
+                    if (i <= 2) {
+                        printf("Cima\n");
+                        continue; // pula
                     }
+                    // chega aqui quando acaba a primeira parte do codigo
+                    printf("Direita\n");
+                    break; 
                 }
                 break;
             case 0:
